@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Daily Reminder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div>
+          <h1>Daily Reminder</h1>
+          <p class="subtitle">
+            Track your exams, assignments, and daily tasks with a live clock and
+            full history.
+          </p>
+        </div>
+        <div class="clock-wrapper">
+          <div class="clock-label">Current time</div>
+          <div id="clock" class="clock-display">--:--:--</div>
+          <div id="clock-date" class="clock-date">-- -- ----</div>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section class="card">
+          <h2>Add Reminder</h2>
+          <form id="reminder-form" class="reminder-form">
+            <div class="form-row">
+              <label for="title">Title</label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                required
+                placeholder="Enter text.."
+              />
+            </div>
+
+            <div class="form-row two-col">
+              <div>
+                <label for="type">Type</label>
+                <select id="type" name="type">
+                  <option value="Exam">Exam</option>
+                  <option value="Assignment">Assignment</option>
+                  <option value="Task">Task</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="date">Date &amp; Time</label>
+                <div class="form-row two-col">
+                  <div>
+                    <input
+                      id="date"
+                      name="date"
+                      type="date"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <input
+                      id="time"
+                      name="time"
+                      type="time"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <select id="meridiem" name="meridiem">
+                      <option value="AM">AM</option>
+                      <option value="PM">PM</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="notes">Notes (optional)</label>
+              <textarea
+                id="notes"
+                name="notes"
+                rows="2"
+                placeholder="Add any extra details here…"
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn primary">Add reminder</button>
+              <span id="form-error" class="form-error" aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="layout-columns">
+          <section class="card">
+            <div class="section-header">
+              <h2>Active Reminders</h2>
+              <span id="active-count" class="badge">0</span>
+            </div>
+            <div id="active-list" class="reminder-list empty-state">
+              No upcoming reminders yet. Add one above.
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-header">
+              <h2>Reminder History</h2>
+              <div class="filters">
+                <label for="history-filter" class="sr-only">Filter history</label>
+                <select id="history-filter">
+                  <option value="all">All</option>
+                  <option value="upcoming">Upcoming</option>
+                  <option value="completed">Completed</option>
+                  <option value="missed">Missed</option>
+                </select>
+              </div>
+            </div>
+            <div id="history-list" class="reminder-list empty-state">
+              History will appear here after you add some reminders.
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>
+          Your reminders are stored only in this browser using
+          <code>localStorage</code>. Clearing browser data will reset them.
+        </p>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+
+
+
+
